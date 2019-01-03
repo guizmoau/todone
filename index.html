@@ -116,6 +116,20 @@
     }
   };
 
+  var dataContainer = $("#data-container");
+  
+  $.ajax({
+    url: "https://github.com/guizmoau/todone/data.json",
+    dataType: "json"
+  }).done(function(result) {    
+    let country = result['European Capitals'][id]['capital_name'];
+    let latitude = result['European Capitals'][id]['latitude'];
+    let longitude = result['European Capitals'][id]['longitude'];
+
+    let dstring = "Country name: " + country + ", Latitude: " + latitude + ", Longitude: " + longitude;
+    dataContainer.text(dstring);
+  });
+  
 })();
 </script>
 </body>
